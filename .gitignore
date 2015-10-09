@@ -1,0 +1,16 @@
+/web/bundles/
+/app/config/parameters.yml
+/build/
+/vendor/
+/bin/
+/composer.phar
+/.idea
+/app/Resources/assets
+/node_modules
+/behat.yml
+/bin
+/npm-debug.log
+/var/bootstrap.php.cache
+/var/cache/
+/var/logs/
+/var/SymfonyRequirements.php
