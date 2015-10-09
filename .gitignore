@@ -15,3 +15,5 @@
 /var/logs/
 /var/SymfonyRequirements.php
 .phpcomplete_extended
+web/css
+web/js
