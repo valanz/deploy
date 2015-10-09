@@ -1,7 +1,7 @@
 nekland_admin:
     resources:
-        event:
-            name: event
+        project:
+            name: project
             classes:
                 model: App\Entity\Project
             properties:
