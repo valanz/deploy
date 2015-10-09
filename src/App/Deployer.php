@@ -20,6 +20,13 @@ class Deployer
         $this->filesystem = $filesystem;
     }
 
+
+    /**
+     *
+     * @param Project $project
+     * @return string
+     * @throws DeployException
+     */
     public function deploy(Project $project)
     {
         $path = sys_get_temp_dir() . '/AwesomeDeployer';
@@ -30,6 +37,7 @@ class Deployer
         $process->run();
         $pathProject = $path . '/project';
         chdir($pathProject);
+        $out = $process->getOutput();
 
         switch ($project->getStrategy()) {
             case Project::STRATEGY_FABRIC:
@@ -43,5 +51,9 @@ class Deployer
         $deployment->run();
 
         $this->filesystem->remove($path);
+
+        $out .= $deployment->getOutput();
+
+        return $out;
     }
 }

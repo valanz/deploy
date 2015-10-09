@@ -17,13 +17,14 @@ class DeployController extends Controller
     public function deployFromWebAction(Project $project)
     {
         try {
-            $this->get('deployer')->deploy($project);
-            $this->addFlash('success', 'The project was sucessful deployed :-)');
+            $stack = $this->get('deployer')->deploy($project);
+            // $this->addFlash('success', 'The project was sucessful deployed :-)');
         } catch(\Exception $e) {
-            $this->addFlash('error', 'There was a failure during the deployment with message:' . $e->getMessage());
+            $this->addFlash('error', 'There was a failure during the deployment with message: ' . $e->getMessage());
+            return $this->redirectToRoute('homepage');
         }
 
-        return $this->redirectToRoute('homepage');
+        return $this->render('App:Deploy:stack.html.twig', ['stack' => $stack]);
     }
 
     public function deployFromApiAction(Project $project)
