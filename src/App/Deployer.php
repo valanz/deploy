@@ -33,15 +33,16 @@ class Deployer
 
         chdir($path);
         $process = new Process('git clone ' . $project->getRepo() . ' project');
-        $process->run();
+        $process->mustRun();
+        $out = $process->getOutput();
+
         $pathProject = $path . '/project';
         chdir($pathProject);
-        $out = $process->getOutput();
 
         $script = $project->getScript();
         if ($script !== null) {
             $script = new Process($script);
-            $script->run();
+            $script->mustRun();
             $out .= $script->getOutput();
         }
 
@@ -54,7 +55,7 @@ class Deployer
         }
 
         $deployment = new Process($command);
-        $deployment->run();
+        $deployment->mustRun();
 
         $this->filesystem->remove($path);
 
