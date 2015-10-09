@@ -3,6 +3,16 @@
 {% block body %}
 
     <h1>Awesome automated deployer for awesome applications</h1>
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
 
     <select name="projects" id="projects" class="form-control">
         <option value="" disabled selected>Projects available</option>
