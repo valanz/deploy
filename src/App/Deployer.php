@@ -38,6 +38,13 @@ class Deployer
         chdir($pathProject);
         $out = $process->getOutput();
 
+        $script = $project->getScript();
+        if ($script !== null) {
+            $script = new Process($script);
+            $script->run();
+            $out .= $script->getOutput();
+        }
+
         switch ($project->getStrategy()) {
             case Project::STRATEGY_FABRIC:
                 $command = $project->getCommand();

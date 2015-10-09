@@ -14,3 +14,5 @@ nekland_admin:
                     label: "Command"
                 repo:
                     label: "Repository"
+                script:
+                    label: "Script to execute before the deployment"
