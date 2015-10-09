@@ -20,7 +20,6 @@ class Deployer
         $this->filesystem = $filesystem;
     }
 
-
     /**
      *
      * @param Project $project

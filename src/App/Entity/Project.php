@@ -54,7 +54,7 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(nullable=true)
+     * @ORM\Column
      */
     private $repo;
 

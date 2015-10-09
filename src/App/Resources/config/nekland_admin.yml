@@ -12,3 +12,5 @@ nekland_admin:
                     label: "Name"
                 command:
                     label: "Command"
+                repo:
+                    label: "Repository"
