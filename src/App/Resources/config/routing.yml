@@ -1,5 +1,15 @@
 homepage:
     path: /
     defaults:
-        _controller: 'FrameworkBundle:Template:template'
-        template: 'App:Home:home.html.twig'
+        _controller: 'App:Home:home'
+
+
+deploy:
+    path: /deployements/{id}
+    defaults:
+        _controller: 'App:Deploy:deployFromWeb'
+
+api_deploy:
+    path: /api/deployments/{id}
+    defaults:
+        _controller: 'App:Deploy:deployFromApi'

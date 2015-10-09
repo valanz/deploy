@@ -1,0 +1,14 @@
+nekland_admin:
+    resources:
+        event:
+            name: event
+            classes:
+                model: App\Entity\Project
+            properties:
+                id:
+                    label: "#"
+                    editable: false
+                name:
+                    label: "Name"
+                command:
+                    label: "Command"

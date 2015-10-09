@@ -2,6 +2,35 @@
 
 {% block body %}
 
-    <h1>Hello ! I'm a website using Symfony Nekland Edition :-) .</h1>
+    <h1>Awesome automated deployer for awesome applications</h1>
+
+    <select name="projects" id="projects" class="form-control">
+        <option value="" disabled selected>Projects available</option>
+        {% for project in projects %}
+            <option value="{{ project.id }}" data-href-web="{{ url('deploy', {'id': project.id}) }}" data-href-api="{{ url('api_deploy', {'id': project.id}) }}">{{ project }}</option>
+            {% else %}
+                <option value="" disabled selected>No project for now</option>
+        {% endfor %}
+    </select><br />
+    <a href="" class="btn btn-success" id="button-deploy">Deploy</a><br/>
+
+    <h4>Path for the API</h4>
+    <pre id="foo">
+    </pre>
+
 
 {% endblock body %}
+
+{% block javascripts %}
+
+    <script>
+        $(document).ready(function () {
+            $('#projects').change(function () {
+                var $option = $(this).find(':selected');
+
+                $('#button-deploy').attr('href', $option.data('href-web'));
+                $('#foo').html($option.data('href-api'));
+            });
+        });
+    </script>
+{% endblock %}

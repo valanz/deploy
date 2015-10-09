@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new App\App(),
             new Nekland\Bundle\NeklandEditionBundle\NeklandEditionBundle(),
+            new Nekland\Bundle\BaseAdminBundle\NeklandBaseAdminBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Exercise\HTMLPurifierBundle\ExerciseHTMLPurifierBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

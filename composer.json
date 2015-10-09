@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle":        "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "nekland/nekland-edition-bundle":       "~1.0",
-        "nekland/dependency-tools":             "dev-master"
+        "nekland/dependency-tools":             "dev-master",
+        "nekland/base-admin-bundle":            "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle":           "~2.3",

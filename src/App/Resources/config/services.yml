@@ -1,0 +1,6 @@
+
+services:
+    deployer:
+        class: App\Deployer
+        arguments:
+            - @filesystem
